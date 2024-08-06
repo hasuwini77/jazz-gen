@@ -11,6 +11,7 @@ const NavbarContainer = styled.nav`
   padding: 1.5rem 2rem;
   box-sizing: border-box;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  border-bottom: 3px solid rgba(255, 255, 255, 0.3);
 `;
 
 const NavList = styled.ul`
@@ -38,6 +39,7 @@ const StyledLink = styled(Link)`
   position: relative;
   overflow: hidden;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  width: 100%;
 
   &::before {
     content: "";

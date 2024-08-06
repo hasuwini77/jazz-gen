@@ -75,8 +75,8 @@ const StyledButton = styled.button`
   }
 
   @media (max-width: 768px) {
-    padding: 0.75rem 2rem;
-    font-size: 1rem;
+    padding: 1rem 2rem;
+    font-size: 1.3rem;
   }
 `;
 

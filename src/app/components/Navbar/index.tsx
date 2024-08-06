@@ -12,6 +12,7 @@ const NavbarContainer = styled.nav`
   box-sizing: border-box;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
   border-bottom: 3px solid rgba(255, 255, 255, 0.3); /* Light bottom border */
+  position: relative;
 `;
 
 const NavList = styled.ul`
@@ -24,24 +25,27 @@ const NavList = styled.ul`
 
 const NavItem = styled.li`
   position: relative;
-  margin: 0 1rem; /* Space out nav items */
+  margin: 0 1rem;
 `;
 
 const StyledLink = styled(Link)`
-  color: #ff603f; /* Link color */
+  color: #fff;
   text-decoration: none;
-  font-size: 1.3rem;
+  font-size: 1.2rem;
   font-weight: bold;
   font-family: "Libre Franklin", "Helvetica Neue", helvetica, arial, sans-serif; /* Font family */
-  line-height: 1.4;
+  line-height: 1.3;
   padding: 0.7rem 1.5rem;
   display: block;
-  border-radius: 30px; /* Rounded pill shape */
+  border-radius: 30px;
   transition: background-color 0.3s ease, box-shadow 0.3s ease,
     transform 0.3s ease;
   position: relative;
   overflow: hidden;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  background: linear-gradient(135deg, #ff603f, #ff8a3d);
+  /* Glow effect */
+  box-shadow: 0 0 15px rgba(255, 96, 63, 0.7);
 
   &::before {
     content: "";
@@ -50,11 +54,11 @@ const StyledLink = styled(Link)`
     left: 50%;
     width: 300%;
     height: 300%;
-    background: rgba(255, 255, 255, 0.2); /* Light highlight */
+    background: rgba(255, 255, 255, 0.1);
     border-radius: 50%;
     transform: translate(-50%, -50%) scale(0.5);
     transition: transform 0.5s ease;
-    z-index: 0; /* Ensure behind text */
+    z-index: 0;
   }
 
   &:hover::before {
@@ -62,15 +66,15 @@ const StyledLink = styled(Link)`
   }
 
   &:hover {
-    background-color: #fff; /* White background on hover */
-    color: #270075; /* Text color on hover */
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4); /* Enhanced shadow on hover */
-    transform: translateY(-4px); /* Lift effect on hover */
+    background: linear-gradient(135deg, #ff8a3d, #ff603f);
+    color: #fff; /* Text color on hover */
+    box-shadow: 0 0 25px rgba(255, 96, 63, 0.9);
+    transform: translateY(-4px);
   }
 
   span {
     position: relative;
-    z-index: 1; /* Ensure text is above pseudo-element */
+    z-index: 1;
   }
 `;
 

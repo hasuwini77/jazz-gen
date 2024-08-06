@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import Image from "next/image";
 import { Timmana } from "next/font/google";
+import ParaGen from "../ParaGen";
 
 const timmana = Timmana({
   subsets: ["latin"],
@@ -97,6 +98,9 @@ const StyledIframe = styled.iframe`
   border: none;
 `;
 
+const TopPage = styled.div`
+  display: flex;
+`;
 const Message = styled.p`
   font-size: 1.4rem;
   color: #ff603f;
@@ -150,15 +154,18 @@ const GenerateGenre = () => {
 
   return (
     <Container>
-      <LogoContainer>
-        <Image
-          src="/jazzerlogo2.png"
-          alt="Logo"
-          width={170}
-          height={170}
-          priority
-        />
-      </LogoContainer>
+      <TopPage>
+        <LogoContainer>
+          <Image
+            src="/jazzerlogo2.png"
+            alt="Logo"
+            width={170}
+            height={170}
+            priority
+          />
+        </LogoContainer>
+        <ParaGen />
+      </TopPage>
       <StyledButton onClick={handleClick} disabled={loading}>
         <span>{loading ? "Generating..." : "Generate Genre"}</span>
       </StyledButton>

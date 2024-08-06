@@ -3,8 +3,9 @@ import Link from "next/link";
 import styled from "styled-components";
 
 const NavbarContainer = styled.nav`
-  background-color: #333;
-  padding: 1rem;
+  background-color: #270075;
+  padding: 1.2rem;
+  box-sizing: border-box;
 `;
 
 const NavList = styled.ul`

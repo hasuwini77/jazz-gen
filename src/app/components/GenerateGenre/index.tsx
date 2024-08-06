@@ -74,8 +74,19 @@ const StyledButton = styled.button`
     cursor: not-allowed;
   }
 
+  /* Responsive styles */
   @media (max-width: 768px) {
-    padding: 1rem 2rem;
+    padding: 0.75rem 2rem;
+    font-size: 1.3rem;
+  }
+
+  @media (min-width: 769px) and (max-width: 1024px) {
+    padding: 1rem 2.5rem;
+    font-size: 1.2rem;
+  }
+
+  @media (min-width: 1024px) {
+    padding: 1rem 3rem;
     font-size: 1.3rem;
   }
 `;
@@ -100,6 +111,15 @@ const StyledIframe = styled.iframe`
 
 const TopPage = styled.div`
   display: flex;
+`;
+
+const GenreResult = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  padding: 1rem;
+  gap: 1.5rem;
 `;
 const Message = styled.p`
   font-size: 1.4rem;
@@ -166,11 +186,13 @@ const GenerateGenre = () => {
         </LogoContainer>
         <ParaGen />
       </TopPage>
-      <StyledButton onClick={handleClick} disabled={loading}>
-        <span>{loading ? "Generating..." : "Generate Genre"}</span>
-      </StyledButton>
-      {error && <Message style={{ color: "red" }}>Error: {error}</Message>}
-      {genre && <Message>"{genre}"</Message>}
+      <GenreResult>
+        <StyledButton onClick={handleClick} disabled={loading}>
+          <span>{loading ? "Generating..." : "Generate Genre"}</span>
+        </StyledButton>
+        {error && <Message style={{ color: "red" }}>Error: {error}</Message>}
+        {genre && <Message>"{genre}"</Message>}
+      </GenreResult>
       <IframeContainer>
         <StyledIframe
           src="https://giphy.com/embed/gIxT0rixC0s3O5FHUw"

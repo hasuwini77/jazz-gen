@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import styled from "styled-components";
+import Image from "next/image";
 
 const Container = styled.div`
   display: flex;
@@ -7,8 +8,9 @@ const Container = styled.div`
   justify-content: center;
   align-items: center;
   height: 100vh;
-  padding: 2rem; /* Add some padding for better spacing */
+  padding: 2rem;
   box-sizing: border-box;
+  position: relative;
 `;
 
 const StyledButton = styled.button`
@@ -89,6 +91,27 @@ const Message = styled.p`
   text-align: center;
 `;
 
+const LogoContainer = styled.div`
+  width: 150px;
+  margin-bottom: 2rem;
+  position: absolute;
+  top: 1rem;
+  left: 50%;
+  transform: translateX(-50%);
+  filter: drop-shadow(0 0 0.75rem #ff603f);
+  animation: float 4s ease-in-out infinite;
+
+  @keyframes float {
+    0%,
+    100% {
+      transform: translateY(0) translateX(-50%);
+    }
+    50% {
+      transform: translateY(-10px) translateX(-50%);
+    }
+  }
+`;
+
 const GenerateGenre = () => {
   const [genre, setGenre] = useState("");
   const [loading, setLoading] = useState(false);
@@ -119,6 +142,15 @@ const GenerateGenre = () => {
 
   return (
     <Container>
+      <LogoContainer>
+        <Image
+          src="/jazzerlogo2.png"
+          alt="Logo"
+          width={150}
+          height={150}
+          priority
+        />
+      </LogoContainer>
       <IframeContainer>
         <StyledIframe
           src="https://giphy.com/embed/gIxT0rixC0s3O5FHUw"

@@ -67,7 +67,7 @@ const StyledButton = styled.button`
 const IframeContainer = styled.div`
   width: 100%;
   max-width: 600px;
-  margin-bottom: 2rem; /* Space between iframe and button */
+  margin-bottom: 2rem;
   overflow: hidden;
   position: relative;
   padding-top: 56.25%; /* 16:9 Aspect Ratio */
@@ -86,7 +86,7 @@ const Message = styled.p`
   margin-top: 2rem;
   font-size: 1.2rem;
   color: #ff603f;
-  text-align: center; /* Center the text */
+  text-align: center;
 `;
 
 const GenerateGenre = () => {

@@ -3,11 +3,7 @@ import Link from "next/link";
 import styled from "styled-components";
 
 const NavbarContainer = styled.nav`
-  background: linear-gradient(
-    135deg,
-    #270075,
-    #6d28d9
-  ); /* Gradient background */
+  background: linear-gradient(135deg, #270075, #6d28d9);
   padding: 1.5rem 2rem;
   box-sizing: border-box;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
@@ -17,7 +13,7 @@ const NavbarContainer = styled.nav`
 const NavList = styled.ul`
   list-style: none;
   display: flex;
-  justify-content: center; /* Center-align items */
+  justify-content: center;
   margin: 0;
   padding: 0;
 `;

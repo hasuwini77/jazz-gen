@@ -14,7 +14,9 @@ const GlobalStyle = createGlobalStyle`
   }
 
   body {
-    font-family: Arial, sans-serif;
+ font-family: "Libre Franklin", "Helvetica Neue", helvetica, arial, sans-serif; 
+    color: #ff603f;
+      background: linear-gradient(135deg, #270075, #6d28d9);
   }
 `;
 

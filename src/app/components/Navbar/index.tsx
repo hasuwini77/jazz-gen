@@ -79,13 +79,13 @@ const Navbar = () => {
     <NavbarContainer>
       <NavList>
         <NavItem>
-          <StyledLink href="/">Home</StyledLink>
+          <StyledLink href="#">Home</StyledLink>
         </NavItem>
         <NavItem>
           <StyledLink href="#about">About</StyledLink>
         </NavItem>
         <NavItem>
-          <StyledLink href="/contact">Contact</StyledLink>
+          <StyledLink href="#contact">Contact</StyledLink>
         </NavItem>
       </NavList>
     </NavbarContainer>

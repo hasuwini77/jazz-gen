@@ -12,11 +12,11 @@ const FormContainer = styled.div`
   border-radius: 10px;
   max-width: 600px;
   width: 100%;
-  margin: 2rem auto;
+  margin: 0 auto;
   box-sizing: border-box;
-
   @media (min-width: 768px) {
     padding: 3rem;
+    height: 80vh;
   }
 `;
 
@@ -98,7 +98,7 @@ const SocialIcons = styled.div`
 
 const ContactForm = () => {
   return (
-    <FormContainer>
+    <FormContainer id="contact">
       <FormTitle>Contact Us</FormTitle>
       <StyledForm>
         <FormField>

@@ -1,11 +1,18 @@
 import styled from "styled-components";
 
 const Container = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   padding: 1.6rem;
-  padding-bottom: 2rem;
   margin: 0 auto;
+  box-sizing: border-box; /* Ensures padding is included in the height */
+
   @media (min-width: 1024px) {
     max-width: 800px;
+    height: 45vh;
+    padding: 0;
   }
 `;
 
@@ -39,6 +46,7 @@ const StyledPara = styled.p`
     font-size: 1.1rem;
   }
 `;
+
 const Donate = () => {
   return (
     <Container>

@@ -12,11 +12,12 @@ const FormContainer = styled.div`
   border-radius: 10px;
   max-width: 600px;
   width: 100%;
-  margin: 0 auto;
+  margin: 2rem auto; /* Adjusted margin for better separation */
   box-sizing: border-box;
+
   @media (min-width: 768px) {
     padding: 3rem;
-    height: 80vh;
+    height: auto; /* Adjusted height for better fit */
   }
 `;
 

@@ -77,7 +77,7 @@ const StyledButton = styled.button`
   /* Responsive styles */
   @media (max-width: 768px) {
     padding: 0.75rem 2rem;
-    font-size: 1.3rem;
+    font-size: 1rem;
   }
 
   @media (min-width: 769px) and (max-width: 1024px) {
@@ -92,12 +92,18 @@ const StyledButton = styled.button`
 `;
 
 const IframeContainer = styled.div`
-  width: 100%;
-  max-width: 600px;
+  width: 90%;
+  max-width: 90%;
   margin: 2rem 0;
   overflow: hidden;
   position: relative;
-  padding-top: 56.25%; /* 16:9 Aspect Ratio */
+  padding-top: 56.25%; 
+  box-sizing: border-box;
+
+  @media (min-width: 768px) {
+    width: 60%;
+    max-width: 60vw;
+    padding-top: 45%; 
 `;
 
 const StyledIframe = styled.iframe`
@@ -107,6 +113,7 @@ const StyledIframe = styled.iframe`
   width: 100%;
   height: 100%;
   border: none;
+  object-fit: cover;
 `;
 
 const TopPage = styled.div`
@@ -121,6 +128,7 @@ const GenreResult = styled.div`
   padding: 1rem;
   gap: 1.5rem;
 `;
+
 const Message = styled.p`
   font-size: 1.4rem;
   color: #ff603f;

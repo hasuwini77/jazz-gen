@@ -11,7 +11,7 @@ const NavbarContainer = styled.nav`
   padding: 1.5rem 2rem;
   box-sizing: border-box;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-  border-bottom: 3px solid rgba(255, 255, 255, 0.3); /* Light bottom border */
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3); /* Light bottom border */
   position: relative;
 `;
 

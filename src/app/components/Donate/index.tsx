@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 const Container = styled.div`
   padding: 1.6rem;
-  margin: 2rem auto;
+  padding-bottom: 2rem;
   @media (min-width: 1024px) {
     max-width: 800px;
   }

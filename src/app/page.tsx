@@ -2,6 +2,7 @@
 import Navbar from "./components/Navbar";
 import HomeContent from "./components/HomeContent";
 import Donate from "./components/Donate";
+import ContactForm from "./components/ContactForm";
 import GenerateGenre from "./components/GenerateGenre";
 import Footer from "./components/Footer";
 import styled from "styled-components";
@@ -13,6 +14,7 @@ const MainStyled = styled.main`
 `;
 
 const StylishHr = styled.hr`
+  margin-bottom: 2rem;
   border: none;
   background: linear-gradient(to right, #270075, #6d28d9);
   position: relative;
@@ -42,6 +44,8 @@ export default function Home() {
         <HomeContent />
         <StylishHr />
         <Donate />
+        <StylishHr />
+        <ContactForm />
       </MainStyled>
       <Footer />
     </>

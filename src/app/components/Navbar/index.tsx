@@ -3,11 +3,7 @@ import Link from "next/link";
 import styled from "styled-components";
 
 const NavbarContainer = styled.nav`
-  background: linear-gradient(
-    135deg,
-    #270075,
-    #6d28d9
-  ); /* Gradient background */
+  background: linear-gradient(135deg, #270075, #6d28d9);
   padding: 1.5rem 2rem;
   box-sizing: border-box;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
@@ -18,7 +14,7 @@ const NavbarContainer = styled.nav`
 const NavList = styled.ul`
   list-style: none;
   display: flex;
-  justify-content: center; /* Center align nav items */
+  justify-content: center;
   margin: 0;
   padding: 0;
 `;
@@ -33,7 +29,7 @@ const StyledLink = styled(Link)`
   text-decoration: none;
   font-size: 1.2rem;
   font-weight: bold;
-  font-family: "Libre Franklin", "Helvetica Neue", helvetica, arial, sans-serif; /* Font family */
+  font-family: "Libre Franklin", "Helvetica Neue", helvetica, arial, sans-serif;
   line-height: 1.3;
   padding: 0.7rem 1.5rem;
   display: block;
@@ -67,7 +63,7 @@ const StyledLink = styled(Link)`
 
   &:hover {
     background: linear-gradient(135deg, #ff8a3d, #ff603f);
-    color: #fff; /* Text color on hover */
+    color: #fff;
     box-shadow: 0 0 25px rgba(255, 96, 63, 0.9);
     transform: translateY(-4px);
   }
@@ -86,7 +82,7 @@ const Navbar = () => {
           <StyledLink href="/">Home</StyledLink>
         </NavItem>
         <NavItem>
-          <StyledLink href="/about">About</StyledLink>
+          <StyledLink href="#about">About</StyledLink>
         </NavItem>
         <NavItem>
           <StyledLink href="/contact">Contact</StyledLink>

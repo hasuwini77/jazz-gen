@@ -22,7 +22,7 @@ const StyledPara = styled.p`
 
 const HomeContent = () => {
   return (
-    <div>
+    <div id="about">
       <StyledTitle>What is Jazzer Gen?</StyledTitle>
       <StyledPara>
         Thanks to the API hosted on

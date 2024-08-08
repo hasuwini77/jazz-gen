@@ -21,7 +21,7 @@ const Container = styled.div`
 
 const StyledButton = styled.button`
   padding: 1rem 3rem;
-  font-size: 1.1rem;
+  font-size: 1rem;
   font-family: "Libre Franklin", "Helvetica Neue", helvetica, arial, sans-serif;
   color: #fff;
   background: linear-gradient(135deg, #ff603f, #ff8a3d);
@@ -74,10 +74,9 @@ const StyledButton = styled.button`
     cursor: not-allowed;
   }
 
-  /* Responsive styles */
   @media (max-width: 768px) {
     padding: 0.75rem 2rem;
-    font-size: 1rem;
+    font-size: 1.4rem;
   }
 
   @media (min-width: 769px) and (max-width: 1024px) {
@@ -93,17 +92,28 @@ const StyledButton = styled.button`
 
 const IframeContainer = styled.div`
   width: 90%;
-  max-width: 90%;
+  max-width: 800px;
   margin: 2rem 0;
   overflow: hidden;
   position: relative;
-  padding-top: 56.25%; 
+  padding-top: 56.25%;
   box-sizing: border-box;
 
   @media (min-width: 768px) {
+    width: 70%;
+    padding-top: 45%;
+  }
+
+  @media (min-width: 1024px) {
     width: 60%;
-    max-width: 60vw;
-    padding-top: 45%; 
+    padding-top: 40%;
+  }
+
+  @media (min-width: 1300px) {
+    width: 50%;
+    max-width: 700px;
+    padding-top: 30%;
+  }
 `;
 
 const StyledIframe = styled.iframe`
@@ -126,14 +136,18 @@ const GenreResult = styled.div`
   justify-content: space-around;
   align-items: center;
   padding: 1rem;
-  gap: 1.5rem;
+  gap: 1.7rem;
+  padding-top: 1rem;
 `;
 
 const Message = styled.p`
-  font-size: 1.4rem;
+  font-size: 1.6rem;
   color: #ff603f;
   text-align: center;
   font-family: "Timmana", serif;
+  border: 1px solid orange;
+  border-radius: 25px;
+  padding: 1rem;
 `;
 
 const LogoContainer = styled.div`

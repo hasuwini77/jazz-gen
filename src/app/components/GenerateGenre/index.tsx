@@ -199,7 +199,7 @@ const GenerateGenre = () => {
       <TopPage>
         <LogoContainer>
           <Image
-            src="/jazzerlogo2.png"
+            src="/JazzerLogo2.png"
             alt="Logo"
             width={170}
             height={170}

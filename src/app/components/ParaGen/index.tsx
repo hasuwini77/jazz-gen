@@ -15,14 +15,17 @@ const StyledDiv = styled.div`
 `;
 
 const SuperTitle = styled.h1`
-  font-size: 3rem;
+  font-size: 5rem;
   padding: 2rem;
   background: linear-gradient(135deg, #ffffff, #b0b0b0);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  font-family: "Timmana", serif;
+  line-height: 1.2;
+  letter-spacing: 0.04em;
 
   @media (max-width: 768px) {
-    font-size: 2rem;
+    font-size: 3rem;
     padding: 1rem;
   }
 `;

@@ -6,14 +6,15 @@ import PicGen from "../PicGen";
 const Container = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly;
+  justify-content: center;
   align-items: center;
   box-sizing: border-box;
   width: 100%;
   margin: 0;
+  padding: 2rem;
 
   @media (max-width: 768px) {
-    margin: 0;
+    padding: 1rem;
   }
 `;
 
@@ -21,23 +22,46 @@ const TopPage = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 2rem;
-  flex-wrap: wrap;
   width: 100%;
+  gap: 2rem;
+
+  @media screen and (max-width: 960px) {
+    flex-direction: column;
+    gap: 1rem;
+  }
+`;
+
+const ParaGenContainer = styled.div`
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
+  padding-right: 1rem;
 
   @media screen and (max-width: 768px) {
-    flex-direction: column;
-    align-items: center;
+    justify-content: center;
+    padding-right: 0;
+  }
+`;
+
+const PicGenContainer = styled.div`
+  flex: 1;
+  display: flex;
+  justify-content: flex-start;
+
+  @media screen and (max-width: 768px) {
+    justify-content: center;
   }
 `;
 
 const GenreResult = styled.div`
+  margin-top: 2rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   padding: 1rem;
   gap: 1.7rem;
+  width: 100%;
 
   @media (max-width: 768px) {
     width: 100%;
@@ -89,8 +113,12 @@ const GenerateGenre = () => {
   return (
     <Container>
       <TopPage>
-        <ParaGen onButtonClick={handleClick} isLoading={loading} />
-        <PicGen />
+        <ParaGenContainer>
+          <ParaGen onButtonClick={handleClick} isLoading={loading} />
+        </ParaGenContainer>
+        <PicGenContainer>
+          <PicGen />
+        </PicGenContainer>
       </TopPage>
       <GenreResult>
         {error && <Message style={{ color: "red" }}>Error: {error}</Message>}

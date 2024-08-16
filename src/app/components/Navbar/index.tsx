@@ -26,8 +26,10 @@ const NavbarContainer = styled.nav`
   width: 100%;
   display: flex;
   align-items: center;
+  justify-content: space-between;
   @media (max-width: 768px) {
     padding: 0.7rem 0.9rem;
+    justify-content: center;
   }
 `;
 

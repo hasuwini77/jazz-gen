@@ -1,4 +1,3 @@
-// app/layout.tsx
 import type { Metadata } from "next";
 import { Libre_Franklin } from "next/font/google";
 import { Timmana } from "next/font/google";

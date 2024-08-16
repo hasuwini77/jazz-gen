@@ -19,7 +19,6 @@ const FooterContainer = styled.footer`
   padding: 2.5rem;
   background: linear-gradient(135deg, #270072, #6d28d2);
   box-shadow: 0 -1px 5px rgba(0, 0, 0, 0.1);
-  bottom: 0;
   width: 100%;
   box-sizing: border-box;
   border-top: 1px solid rgba(255, 255, 255, 0.3);
@@ -40,6 +39,10 @@ const FooterContainer = styled.footer`
 
     @media (min-width: 1024px) {
       font-size: 1.2rem;
+    }
+
+    @media (max-width: 480px) {
+      font-size: 0.9rem; /* Adjust for very small screens */
     }
   }
 `;

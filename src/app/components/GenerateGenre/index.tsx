@@ -8,16 +8,27 @@ const Container = styled.div`
   flex-direction: column;
   justify-content: space-evenly;
   align-items: center;
-  height: 100vh;
-  padding: 2rem;
   box-sizing: border-box;
+  width: 100%;
+  margin: 0;
+
+  @media (max-width: 768px) {
+    margin: 0;
+  }
 `;
 
 const TopPage = styled.div`
   display: flex;
   align-items: center;
-  justify-content: center;
-  gap: 2rem; /* Add space between components */
+  justify-content: space-between;
+  gap: 2rem;
+  flex-wrap: wrap;
+  width: 100%;
+
+  @media screen and (max-width: 768px) {
+    flex-direction: column;
+    align-items: center;
+  }
 `;
 
 const GenreResult = styled.div`
@@ -27,6 +38,10 @@ const GenreResult = styled.div`
   align-items: center;
   padding: 1rem;
   gap: 1.7rem;
+
+  @media (max-width: 768px) {
+    width: 100%;
+  }
 `;
 
 const Message = styled.p`
@@ -37,6 +52,10 @@ const Message = styled.p`
   border: 1px solid orange;
   border-radius: 25px;
   padding: 1rem;
+
+  @media (max-width: 768px) {
+    font-size: 1.4rem;
+  }
 `;
 
 const GenerateGenre = () => {

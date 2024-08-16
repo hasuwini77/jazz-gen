@@ -7,13 +7,14 @@ const Container = styled.div`
   align-items: center;
   padding: 1.6rem;
   margin: 0 auto;
-
   box-sizing: border-box;
 
   @media (min-width: 1024px) {
     max-width: 800px;
-    height: 45vh;
-    padding: 0;
+  }
+
+  @media (max-width: 768px) {
+    padding: 1rem;
   }
 `;
 
@@ -25,6 +26,10 @@ const StyledTitle = styled.h3`
 
   @media (min-width: 1024px) {
     font-size: 2rem;
+  }
+
+  @media (max-width: 768px) {
+    font-size: 1.5rem;
   }
 `;
 
@@ -45,6 +50,11 @@ const StyledPara = styled.p`
 
   @media (min-width: 1024px) {
     font-size: 1.1rem;
+  }
+
+  @media (max-width: 768px) {
+    font-size: 0.9rem;
+    padding: 0.5rem;
   }
 `;
 

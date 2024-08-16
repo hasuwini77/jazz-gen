@@ -11,33 +11,48 @@ const StyledDiv = styled.div`
   border-radius: 10px;
   text-align: center;
   color: #fff;
+  margin: 0;
 `;
 
 const SuperTitle = styled.h1`
-  font-size: 5rem;
-  padding: 3rem;
+  font-size: 3rem;
+  padding: 2rem;
   background: linear-gradient(135deg, #ffffff, #b0b0b0);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+
+  @media (max-width: 768px) {
+    font-size: 2rem;
+    padding: 1rem;
+  }
 `;
 
 const StyledTitle = styled.h2`
-  font-size: 2rem;
+  font-size: 1.5rem;
   padding: 1rem;
   background: linear-gradient(135deg, #ffffff, #dcdcdc);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+
+  @media (max-width: 768px) {
+    font-size: 1.2rem;
+    padding: 0.5rem;
+  }
 `;
 
 const StyledPara2 = styled.p`
-  font-size: 1.2rem;
-  padding: 1rem;
-  line-height: 1.5rem;
+  font-size: 1rem;
+  padding: 0.5rem;
+  line-height: 1.4rem;
   background: linear-gradient(135deg, #ffffff, #dcdcdc);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-`;
 
+  @media (max-width: 768px) {
+    font-size: 0.9rem;
+    padding: 0.3rem;
+  }
+`;
 const StyledButton = styled.button`
   padding: 1rem 3rem;
   font-size: 1rem;

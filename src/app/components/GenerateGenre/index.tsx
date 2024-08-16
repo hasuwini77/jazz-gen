@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import Image from "next/image";
 import { Timmana } from "next/font/google";
 import ParaGen from "../ParaGen";
+import PicGen from "../PicGen";
 
 const timmana = Timmana({
   subsets: ["latin"],
@@ -33,7 +33,6 @@ const StyledButton = styled.button`
   overflow: hidden;
   transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
 
-  /* Glow effect */
   box-shadow: 0 0 15px rgba(255, 96, 63, 0.7);
 
   &:hover {
@@ -90,42 +89,6 @@ const StyledButton = styled.button`
   }
 `;
 
-const IframeContainer = styled.div`
-  width: 90%;
-  max-width: 800px;
-  margin: 2rem 0;
-  overflow: hidden;
-  position: relative;
-  padding-top: 56.25%;
-  box-sizing: border-box;
-
-  @media (min-width: 768px) {
-    width: 70%;
-    padding-top: 45%;
-  }
-
-  @media (min-width: 1024px) {
-    width: 60%;
-    padding-top: 40%;
-  }
-
-  @media (min-width: 1300px) {
-    width: 50%;
-    max-width: 700px;
-    padding-top: 30%;
-  }
-`;
-
-const StyledIframe = styled.iframe`
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  border: none;
-  object-fit: cover;
-`;
-
 const TopPage = styled.div`
   display: flex;
 `;
@@ -148,22 +111,6 @@ const Message = styled.p`
   border: 1px solid orange;
   border-radius: 25px;
   padding: 1rem;
-`;
-
-const LogoContainer = styled.div`
-  width: 150px;
-  filter: drop-shadow(0 0 0.75rem #ff603f);
-  animation: float 4s ease-in-out infinite;
-
-  @keyframes float {
-    0%,
-    100% {
-      transform: translateY(0);
-    }
-    50% {
-      transform: translateY(-10px);
-    }
-  }
 `;
 
 const GenerateGenre = () => {
@@ -197,16 +144,8 @@ const GenerateGenre = () => {
   return (
     <Container>
       <TopPage>
-        <LogoContainer>
-          <Image
-            src="/JazzerLogo2.png"
-            alt="Logo"
-            width={170}
-            height={170}
-            priority
-          />
-        </LogoContainer>
         <ParaGen />
+        <PicGen />
       </TopPage>
       <GenreResult>
         <StyledButton onClick={handleClick} disabled={loading}>
@@ -215,12 +154,6 @@ const GenerateGenre = () => {
         {error && <Message style={{ color: "red" }}>Error: {error}</Message>}
         {genre && <Message>"{genre}"</Message>}
       </GenreResult>
-      <IframeContainer>
-        <StyledIframe
-          src="https://giphy.com/embed/gIxT0rixC0s3O5FHUw"
-          allowFullScreen
-        ></StyledIframe>
-      </IframeContainer>
     </Container>
   );
 };

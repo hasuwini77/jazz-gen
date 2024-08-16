@@ -8,7 +8,7 @@ const Container = styled.div`
   padding: 1.6rem;
   margin: 0 auto;
 
-  box-sizing: border-box; /* Ensures padding is included in the height */
+  box-sizing: border-box;
 
   @media (min-width: 1024px) {
     max-width: 800px;

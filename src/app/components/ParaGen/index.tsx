@@ -41,9 +41,10 @@ const StyledPara2 = styled.p`
 const StyledButton = styled.button`
   padding: 1rem 3rem;
   font-size: 1rem;
+  margin-top: 1rem;
   font-family: "Libre Franklin", "Helvetica Neue", helvetica, arial, sans-serif;
   color: #fff;
-  background: linear-gradient(135deg, #ff603f, #ff8a3d);
+  background: linear-gradient(135deg, #ff99aa, #ff1899);
   border: none;
   border-radius: 50px;
   cursor: pointer;
@@ -54,7 +55,7 @@ const StyledButton = styled.button`
   box-shadow: 0 0 15px rgba(255, 96, 63, 0.7);
 
   &:hover {
-    background: linear-gradient(135deg, #ff8a3d, #ff603f);
+    background: linear-gradient(135deg, #ff7799, #cc0077);
     transform: scale(1.05);
     box-shadow: 0 0 25px rgba(255, 96, 63, 0.9);
   }

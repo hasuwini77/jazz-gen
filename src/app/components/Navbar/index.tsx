@@ -26,6 +26,9 @@ const NavbarContainer = styled.nav`
   width: 100%;
   display: flex;
   align-items: center;
+  @media (max-width: 768px) {
+    padding: 0.7rem 0.9rem;
+  }
 `;
 
 const IconContainer = styled.div`
@@ -70,10 +73,10 @@ const NavItem = styled.li`
 const StyledLink = styled(Link)`
   color: #fff;
   text-decoration: none;
-  font-size: 1rem;
+  font-size: 1.2rem;
   font-weight: bold;
   font-family: "Libre Franklin", "Helvetica Neue", helvetica, arial, sans-serif;
-  padding: 0.7rem 1rem;
+  padding: 0.4rem 1rem;
   display: flex;
   align-items: center;
   border-radius: 20px;
@@ -81,6 +84,9 @@ const StyledLink = styled(Link)`
     transform 1s ease;
   background: none;
   box-shadow: none;
+  @media (max-width: 768px) {
+    font-size: 1rem;
+  }
 
   &:hover {
     background: rgba(255, 255, 255, 0.1);
@@ -92,7 +98,6 @@ const StyledLink = styled(Link)`
   }
 `;
 
-// Apply the spinning animation to the icon
 const IconLink = styled(Link)`
   color: #fff;
   text-decoration: none;
@@ -102,8 +107,8 @@ const IconLink = styled(Link)`
   animation: ${spin} 1.4s linear infinite;
 
   &:hover {
-    transform: scale(1.2); // Scale up on hover
-    opacity: 0.8; // Adjust opacity for fading effect
+    transform: scale(1.2);
+    opacity: 0.8;
   }
 `;
 

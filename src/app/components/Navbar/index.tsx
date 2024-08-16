@@ -1,14 +1,48 @@
 "use client";
 import Link from "next/link";
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
+import { FaCompactDisc } from "react-icons/fa";
+
+const spin = keyframes`
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+`;
 
 const NavbarContainer = styled.nav`
   background: linear-gradient(135deg, #270075, #6d28d9);
-  padding: 1.5rem 2rem;
+  padding: 1.2rem 1.6rem;
   box-sizing: border-box;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
   border-bottom: 1px solid rgba(255, 255, 255, 0.3);
-  position: relative;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  width: 100%;
+  display: flex;
+  align-items: center;
+`;
+
+const IconContainer = styled.div`
+  flex: 0 1 auto;
+  transition: transform 1s ease, opacity 0.3s ease;
+  transform: scale(1);
+
+  &:hover {
+    transform: scale(1.2);
+    opacity: 0.8;
+  }
+`;
+
+const NavListWrapper = styled.div`
+  flex: 1;
+  display: flex;
+  justify-content: center;
 `;
 
 const NavList = styled.ul`
@@ -20,74 +54,86 @@ const NavList = styled.ul`
 `;
 
 const NavItem = styled.li`
-  position: relative;
   margin: 0 1rem;
+
+  &:first-child {
+    @media (max-width: 768px) {
+      display: none;
+    }
+  }
+  &:last-child {
+    border: 1px solid white;
+    border-radius: 25px;
+  }
 `;
 
 const StyledLink = styled(Link)`
   color: #fff;
   text-decoration: none;
-  font-size: 1.2rem;
+  font-size: 1rem;
   font-weight: bold;
   font-family: "Libre Franklin", "Helvetica Neue", helvetica, arial, sans-serif;
-  line-height: 1.3;
-  padding: 0.7rem 1.5rem;
-  display: block;
-  border-radius: 30px;
+  padding: 0.7rem 1rem;
+  display: flex;
+  align-items: center;
+  border-radius: 20px;
   transition: background-color 0.3s ease, box-shadow 0.3s ease,
-    transform 0.3s ease;
-  position: relative;
-  overflow: hidden;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  background: linear-gradient(135deg, #ff603f, #ff8a3d);
-  /* Glow effect */
-  box-shadow: 0 0 15px rgba(255, 96, 63, 0.7);
-
-  &::before {
-    content: "";
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 300%;
-    height: 300%;
-    background: rgba(255, 255, 255, 0.1);
-    border-radius: 50%;
-    transform: translate(-50%, -50%) scale(0.5);
-    transition: transform 0.5s ease;
-    z-index: 0;
-  }
-
-  &:hover::before {
-    transform: translate(-50%, -50%) scale(1);
-  }
+    transform 1s ease;
+  background: none;
+  box-shadow: none;
 
   &:hover {
-    background: linear-gradient(135deg, #ff8a3d, #ff603f);
+    background: rgba(255, 255, 255, 0.1);
     color: #fff;
-    box-shadow: 0 0 25px rgba(255, 96, 63, 0.9);
-    transform: translateY(-4px);
   }
 
   span {
-    position: relative;
-    z-index: 1;
+    padding: 0.3rem;
+  }
+`;
+
+// Apply the spinning animation to the icon
+const IconLink = styled(Link)`
+  color: #fff;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  font-size: 1.5rem;
+  animation: ${spin} 1.4s linear infinite;
+
+  &:hover {
+    transform: scale(1.2); // Scale up on hover
+    opacity: 0.8; // Adjust opacity for fading effect
   }
 `;
 
 const Navbar = () => {
   return (
     <NavbarContainer>
-      <NavList>
-        <NavItem>
-          <StyledLink href="#">Home</StyledLink>
-        </NavItem>
-        <NavItem>
-          <StyledLink href="#about">About</StyledLink>
-        </NavItem>
-        <NavItem>
-          <StyledLink href="#contact">Contact</StyledLink>
-        </NavItem>
-      </NavList>
+      <IconContainer>
+        <IconLink href="#">
+          <FaCompactDisc />
+        </IconLink>
+      </IconContainer>
+      <NavListWrapper>
+        <NavList>
+          <NavItem>
+            <StyledLink href="#">
+              <span>Home</span>
+            </StyledLink>
+          </NavItem>
+          <NavItem>
+            <StyledLink href="#about">
+              <span>About</span>
+            </StyledLink>
+          </NavItem>
+          <NavItem>
+            <StyledLink href="#contact">
+              <span>Contact</span>
+            </StyledLink>
+          </NavItem>
+        </NavList>
+      </NavListWrapper>
     </NavbarContainer>
   );
 };

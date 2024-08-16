@@ -20,6 +20,7 @@ const MainStyled = styled.main`
   min-height: 100vh;
   min-width: 100vw;
   width: 100%;
+  margin-top: 4rem;
 
   @media (min-width: 768px) {
     padding: 2rem;

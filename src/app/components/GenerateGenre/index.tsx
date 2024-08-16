@@ -20,7 +20,7 @@ const Container = styled.div`
 const TopPage = styled.div`
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
   gap: 2rem;
   flex-wrap: wrap;
   width: 100%;

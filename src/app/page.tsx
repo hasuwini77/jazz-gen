@@ -25,8 +25,17 @@ const MainStyled = styled.main`
   margin-top: 4rem;
 
   @media (min-width: 768px) {
-    padding: 2rem;
   }
+`;
+
+const SecondColorBg = styled.div`
+  background: linear-gradient(135deg, #270075, #1d11d9);
+  margin: 0;
+  min-width: 100vw;
+  width: 100%;
+  min-height: 50vh;
+  display: flex;
+  justify-content: center;
 `;
 
 const BackToTopButton = styled.button<ButtonStyleProps>`
@@ -85,7 +94,9 @@ export default function Home() {
       <MainStyled>
         <Navbar />
         <GenerateGenre />
-        <HomeContent />
+        <SecondColorBg>
+          <HomeContent />
+        </SecondColorBg>
         <Donate />
         <ContactForm />
       </MainStyled>

@@ -9,8 +9,10 @@ import Footer from "./components/Footer";
 import { useState, useEffect } from "react";
 import GlobalStyle from "./components/GlobalStyle";
 
-interface BackToTopButtonProps {
-  show: boolean;
+interface ButtonStyleProps {
+  opacity?: number;
+  visibility?: "visible" | "hidden";
+  $show?: boolean;
 }
 
 const MainStyled = styled.main`
@@ -27,7 +29,7 @@ const MainStyled = styled.main`
   }
 `;
 
-const BackToTopButton = styled.button<BackToTopButtonProps>`
+const BackToTopButton = styled.button<ButtonStyleProps>`
   position: fixed;
   bottom: 1rem;
   right: 1rem;
@@ -39,10 +41,10 @@ const BackToTopButton = styled.button<BackToTopButtonProps>`
   cursor: pointer;
   font-size: 0.9rem;
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-  opacity: ${({ show }) => (show ? 1 : 0)};
-  visibility: ${({ show }) => (show ? "visible" : "hidden")};
-  transition: opacity 0.3s ease, visibility 0.3s ease;
   z-index: 1000;
+  opacity: ${({ $show }) => ($show ? 1 : 0)};
+  visibility: ${({ $show }) => ($show ? "visible" : "hidden")};
+  transition: opacity 0.3s ease, visibility 0.3s ease;
 
   @media (min-width: 768px) {
     bottom: 2rem;
@@ -88,7 +90,7 @@ export default function Home() {
         <ContactForm />
       </MainStyled>
       <Footer />
-      <BackToTopButton show={showButton} onClick={scrollToTop}>
+      <BackToTopButton $show={showButton} onClick={scrollToTop}>
         ↑
       </BackToTopButton>
     </>

@@ -1,7 +1,9 @@
+"use client";
 import React, { useState } from "react";
 import styled from "styled-components";
 import ParaGen from "../ParaGen";
 import PicGen from "../PicGen";
+import { fetchGenre } from "@/app/utils/fetching";
 
 const Container = styled.div`
   display: flex;
@@ -91,13 +93,7 @@ const GenerateGenre = () => {
     setLoading(true);
     setError(null);
     try {
-      const response = await fetch(
-        "https://binaryjazz.us/wp-json/genrenator/v1/genre/"
-      );
-      if (!response.ok) {
-        throw new Error("Network response was not ok");
-      }
-      const data = await response.json();
+      const data = await fetchGenre();
       setGenre(data);
     } catch (err) {
       if (err instanceof Error) {

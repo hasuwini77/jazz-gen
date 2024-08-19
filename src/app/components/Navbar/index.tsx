@@ -1,7 +1,7 @@
 "use client";
 import Link from "next/link";
 import styled, { keyframes } from "styled-components";
-import { FaCompactDisc } from "react-icons/fa";
+import React, { Suspense } from "react";
 
 const spin = keyframes`
   0% {
@@ -35,14 +35,8 @@ const NavbarContainer = styled.nav`
 
 const IconContainer = styled.div`
   flex: 0 1 auto;
-  transition: transform 1s ease, opacity 0.3s ease;
-  transform: scale(1);
-
-  &:hover {
-    transform: scale(1.2);
-    opacity: 0.8;
-  }
 `;
+const SplineLogo = React.lazy(() => import("./SplineLogo"));
 
 const NavListWrapper = styled.div`
   flex: 1;
@@ -118,9 +112,9 @@ const Navbar = () => {
   return (
     <NavbarContainer>
       <IconContainer>
-        <IconLink href="#">
-          <FaCompactDisc />
-        </IconLink>
+        <Suspense fallback={<div>Loading...</div>}>
+          <SplineLogo />
+        </Suspense>
       </IconContainer>
       <NavListWrapper>
         <NavList>

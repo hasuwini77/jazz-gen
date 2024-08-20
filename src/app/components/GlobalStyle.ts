@@ -12,6 +12,8 @@ const GlobalStyle = createGlobalStyle`
     width: 100%;
     height: 100%;
     overflow-x: hidden;
+    scroll-behavior: smooth;
+    scroll-padding-top: 145px;
   }
 
   body {

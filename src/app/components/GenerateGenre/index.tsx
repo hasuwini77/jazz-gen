@@ -56,7 +56,7 @@ const PicGenContainer = styled.div`
   }
 `;
 
-const GenreResult = styled.div`
+const GenreResultDesktop = styled.div`
   margin-top: 2rem;
   display: flex;
   flex-direction: column;
@@ -68,6 +68,23 @@ const GenreResult = styled.div`
 
   @media (max-width: 768px) {
     width: 100%;
+    display: none;
+  }
+`;
+
+const GenreResultMobile = styled.div`
+  margin-top: 0.2rem;
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 0.5rem;
+  gap: 1.5rem;
+  width: 100%;
+
+  @media (max-width: 768px) {
+    width: 100%;
+    display: flex;
   }
 `;
 
@@ -113,14 +130,18 @@ const GenerateGenre = () => {
         <ParaGenContainer>
           <ParaGen onButtonClick={handleClick} isLoading={loading} />
         </ParaGenContainer>
+        <GenreResultMobile>
+          {error && <Message style={{ color: "red" }}>Error: {error}</Message>}
+          {genre && <Message>"{genre}"</Message>}
+        </GenreResultMobile>
         <PicGenContainer>
           <PicGen />
         </PicGenContainer>
       </TopPage>
-      <GenreResult>
+      <GenreResultDesktop>
         {error && <Message style={{ color: "red" }}>Error: {error}</Message>}
         {genre && <Message>"{genre}"</Message>}
-      </GenreResult>
+      </GenreResultDesktop>
     </Container>
   );
 };

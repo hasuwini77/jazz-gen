@@ -14,9 +14,11 @@ const FormContainer = styled.div`
   width: 100%;
   margin: auto auto;
   box-sizing: border-box;
+  margin-bottom: 4rem;
 
   @media (max-width: 768px) {
     padding: 1rem;
+    margin-bottom: 0.2rem;
   }
   @media (min-width: 768px) {
     padding: 3rem;
@@ -101,47 +103,53 @@ const SocialIcons = styled.div`
 
 const ContactForm = () => {
   return (
-    <FormContainer id="contact">
-      <FormTitle>Contact Us</FormTitle>
-      <StyledForm>
-        <FormField>
-          <Label htmlFor="firstName">First Name</Label>
-          <Input type="text" id="firstName" name="firstName" required />
-        </FormField>
-        <FormField>
-          <Label htmlFor="lastName">Last Name</Label>
-          <Input type="text" id="lastName" name="lastName" required />
-        </FormField>
-        <FormField>
-          <Label htmlFor="email">Email</Label>
-          <Input type="email" id="email" name="email" required />
-        </FormField>
-        <FormField>
-          <Label htmlFor="message">Message</Label>
-          <TextArea id="message" name="message" required />
-        </FormField>
-        <SubmitButton type="submit">Send Message</SubmitButton>
-      </StyledForm>
-      <SocialIcons>
-        <a
-          href="https://facebook.com"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <FaFacebook />
-        </a>
-        <a href="https://twitter.com" target="_blank" rel="noopener noreferrer">
-          <FaTwitter />
-        </a>
-        <a
-          href="https://instagram.com"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <FaInstagram />
-        </a>
-      </SocialIcons>
-    </FormContainer>
+    <>
+      <FormContainer id="contact">
+        <FormTitle>Contact Us</FormTitle>
+        <StyledForm>
+          <FormField>
+            <Label htmlFor="firstName">First Name</Label>
+            <Input type="text" id="firstName" name="firstName" required />
+          </FormField>
+          <FormField>
+            <Label htmlFor="lastName">Last Name</Label>
+            <Input type="text" id="lastName" name="lastName" required />
+          </FormField>
+          <FormField>
+            <Label htmlFor="email">Email</Label>
+            <Input type="email" id="email" name="email" required />
+          </FormField>
+          <FormField>
+            <Label htmlFor="message">Message</Label>
+            <TextArea id="message" name="message" required />
+          </FormField>
+          <SubmitButton type="submit">Send Message</SubmitButton>
+        </StyledForm>
+        <SocialIcons>
+          <a
+            href="https://facebook.com"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <FaFacebook />
+          </a>
+          <a
+            href="https://twitter.com"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <FaTwitter />
+          </a>
+          <a
+            href="https://instagram.com"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <FaInstagram />
+          </a>
+        </SocialIcons>
+      </FormContainer>
+    </>
   );
 };
 

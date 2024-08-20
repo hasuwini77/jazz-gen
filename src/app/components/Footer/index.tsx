@@ -43,14 +43,15 @@ const FooterContainer = styled.footer`
     }
 
     @media (max-width: 480px) {
-      font-size: 0.9rem; /* Adjust for very small screens */
+      font-size: 0.9rem;
     }
   }
 `;
 
+const date = new Date();
+const year = date.getFullYear();
+
 const Footer = () => {
-  const date = new Date();
-  const year = date.getFullYear();
   return (
     <FooterContainer>
       <p>Copyright ® {year} Edwin Andermyr</p>

@@ -1,7 +1,7 @@
 "use client";
 import Link from "next/link";
 import styled, { keyframes } from "styled-components";
-import React, { Suspense } from "react";
+import SplineLogo from "./SplineLogo";
 
 const spin = keyframes`
   0% {
@@ -36,7 +36,6 @@ const NavbarContainer = styled.nav`
 const IconContainer = styled.div`
   flex: 0 1 auto;
 `;
-const SplineLogo = React.lazy(() => import("./SplineLogo"));
 
 const NavListWrapper = styled.div`
   flex: 1;
@@ -112,9 +111,7 @@ const Navbar = () => {
   return (
     <NavbarContainer>
       <IconContainer>
-        <Suspense fallback={<div>Loading...</div>}>
-          <SplineLogo />
-        </Suspense>
+        <SplineLogo />
       </IconContainer>
       <NavListWrapper>
         <NavList>

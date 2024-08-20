@@ -1,5 +1,6 @@
-import SplineDonation from "./SplineDonation";
+"use client";
 import styled from "styled-components";
+import SplineDonation from "./SplineDonation";
 
 const Container = styled.div`
   display: flex;
@@ -12,7 +13,7 @@ const Container = styled.div`
 
   @media (min-width: 1024px) {
     max-width: 800px;
-    height: 80vh;
+    height: 70vh;
     padding: 0;
   }
 `;

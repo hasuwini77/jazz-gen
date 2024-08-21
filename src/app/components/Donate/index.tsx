@@ -55,29 +55,26 @@ const StyledPara = styled.p`
   }
 `;
 
-const Donate = () => {
+const Donate: React.FC = () => {
   return (
-    <>
-      <Container>
-        <StyledTitle>Donate</StyledTitle>
-        <StyledPara>
-          At the moment, this site is simply a school project to practice the
-          love for styled component and Next JS. If you feel for this project
-          and want to help the team behind this idea, that created this API, you
-          can make a <a href="https://binaryjazz.us/donate/"> donation here </a>
-          . I am pretty sure the team at{" "}
-          <a href="https://binaryjazz.us/">binaryjazz</a> will be grateful for
-          that! If you want to contact them, you can visit{" "}
-          <a href="https://binaryjazz.us/contact/" target="_blank">
-            this page here{" "}
-          </a>
-          .
-        </StyledPara>
-        <SplineContainer>
-          <SplineDonation />
-        </SplineContainer>
-      </Container>
-    </>
+    <Container>
+      <StyledTitle>Donate</StyledTitle>
+      <StyledPara>
+        At the moment, this site is simply a school project to practice the love
+        for styled component and Next JS. If you feel for this project and want
+        to help the team behind this idea, that created this API, you can make a{" "}
+        <a href="https://binaryjazz.us/donate/"> donation here </a>. I am pretty
+        sure the team at <a href="https://binaryjazz.us/">binaryjazz</a> will be
+        grateful for that! If you want to contact them, you can visit{" "}
+        <a href="https://binaryjazz.us/contact/" target="_blank">
+          this page here{" "}
+        </a>
+        .
+      </StyledPara>
+      <SplineContainer>
+        <SplineDonation />
+      </SplineContainer>
+    </Container>
   );
 };
 

@@ -102,10 +102,11 @@ const Message = styled.p`
   }
 `;
 
-const GenerateGenre = () => {
-  const [genre, setGenre] = useState("");
-  const [loading, setLoading] = useState(false);
+const GenerateGenre: React.FC = () => {
+  const [genre, setGenre] = useState<string>("");
+  const [loading, setLoading] = useState<boolean>(false);
   const [error, setError] = useState<string | null>(null);
+  const [restartKey, setRestartKey] = useState<number>(0);
 
   const handleClick = async () => {
     setLoading(true);
@@ -113,6 +114,9 @@ const GenerateGenre = () => {
     try {
       const data = await fetchGenre();
       setGenre(data);
+
+      // Increment key to force re-render of animation
+      setRestartKey((prevKey) => prevKey + 1);
     } catch (err) {
       if (err instanceof Error) {
         setError(err.message);
@@ -135,7 +139,7 @@ const GenerateGenre = () => {
           {genre && <Message>"{genre}"</Message>}
         </GenreResultMobile>
         <PicGenContainer>
-          <PicGen />
+          <PicGen restartKey={restartKey} />
         </PicGenContainer>
       </TopPage>
       <GenreResultDesktop>

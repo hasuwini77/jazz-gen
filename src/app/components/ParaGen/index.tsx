@@ -1,6 +1,8 @@
 "use client";
-import React from "react";
+import React, { useEffect } from "react";
 import styled from "styled-components";
+import gsap from "gsap";
+import SplitType from "split-type";
 
 interface ParaGenProps {
   onButtonClick: () => void;
@@ -20,7 +22,7 @@ const SuperTitle = styled.h1`
   padding: 2rem;
   background: linear-gradient(135deg, #ffffff, #b0b0b0);
   -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  -webkit-text-fill-color: white;
   font-family: "Timmana", serif;
   line-height: 1.2;
   letter-spacing: 0.04em;
@@ -128,9 +130,20 @@ const StyledButton = styled.button`
 `;
 
 const ParaGen: React.FC<ParaGenProps> = ({ onButtonClick, isLoading }) => {
+  useEffect(() => {
+    const split = new SplitType(".super-title", { types: "chars" });
+    gsap.from(split.chars, {
+      opacity: 0,
+      y: 100,
+      stagger: 0.06,
+      duration: 3,
+      ease: "elastic.out",
+    });
+  }, []);
+
   return (
     <StyledDiv>
-      <SuperTitle> Jazzer Gen</SuperTitle>
+      <SuperTitle className="super-title">Jazzer Gen</SuperTitle>
       <StyledTitle>Generate New Music Genres</StyledTitle>
       <StyledPara2>In a blink of a Click</StyledPara2>
       <StyledButton onClick={onButtonClick} disabled={isLoading}>

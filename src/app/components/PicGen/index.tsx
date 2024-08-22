@@ -28,14 +28,34 @@ const PicGen: React.FC<PicGenProps> = ({ restartKey }) => {
         {
           opacity: 0,
           scale: 0.5,
-          rotation: 90,
+          rotation: 0,
         },
         {
           opacity: 1,
           scale: 1,
-          duration: 1,
-          ease: "power3.out",
-          rotation: 360,
+          duration: 2,
+          ease: "slow(0.7, 0.7, true)",
+          rotation: 372,
+          onComplete: () => {
+            gsap.to(spline, {
+              rotation: 360,
+              duration: 0.7,
+              ease: "power3.in",
+              onComplete: () => {
+                // Add shake effect after rotation reset
+                gsap.to(spline, {
+                  x: "+=10", //
+                  duration: 0.06,
+                  repeat: 10,
+                  yoyo: true,
+                  ease: "power2.inOut",
+                  onComplete: () => {
+                    gsap.to(spline, { x: 0, duration: 0.2 });
+                  },
+                });
+              },
+            });
+          },
         }
       );
     }

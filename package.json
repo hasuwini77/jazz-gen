@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "@splinetool/react-spline": "^4.0.0",
-    "@splinetool/runtime": "^1.9.18",
+    "@splinetool/runtime": "^1.9.19",
     "babel-plugin-styled-components": "^2.1.4",
     "gsap": "^3.12.5",
     "next": "14.2.5",

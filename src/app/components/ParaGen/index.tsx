@@ -134,16 +134,20 @@ const LoaderContainer = styled.div`
 const ParaGen: React.FC<ParaGenProps> = ({ onButtonClick, isLoading }) => {
   const loaderRef = useRef<HTMLDivElement>(null);
   const buttonRef = useRef<HTMLButtonElement>(null);
+  const hasAnimatedTitle = useRef<boolean>(false);
 
   useEffect(() => {
-    const split = new SplitType(".super-title", { types: "chars" });
-    gsap.from(split.chars, {
-      opacity: 0,
-      y: 100,
-      stagger: 0.06,
-      duration: 3,
-      ease: "elastic.out",
-    });
+    if (!hasAnimatedTitle.current) {
+      const split = new SplitType(".super-title", { types: "chars" });
+      gsap.from(split.chars, {
+        opacity: 0,
+        y: 100,
+        stagger: 0.06,
+        duration: 3,
+        ease: "elastic.out",
+      });
+      hasAnimatedTitle.current = true; // Making sure the SuperTitle animation only runs once on page load
+    }
 
     if (buttonRef.current && loaderRef.current) {
       if (isLoading) {
@@ -188,7 +192,7 @@ const ParaGen: React.FC<ParaGenProps> = ({ onButtonClick, isLoading }) => {
       >
         {isLoading && (
           <LoaderContainer ref={loaderRef}>
-            <PacmanLoader size={15} color={"#ff99aa"} loading={isLoading} />
+            <PacmanLoader size={13} color={"#ffffff"} loading={isLoading} />
           </LoaderContainer>
         )}
         {!isLoading && <span>Generate Genre</span>}

@@ -1,6 +1,7 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import styled from "styled-components";
+import gsap from "gsap";
 import ParaGen from "../ParaGen";
 import PicGen from "../PicGen";
 import { fetchGenre } from "@/app/utils/fetching";
@@ -108,6 +109,7 @@ const GenerateGenre: React.FC = () => {
   const [error, setError] = useState<string | null>(null);
   const [restartKey, setRestartKey] = useState<number>(0);
   const [readyMessage, setReadyMessage] = useState<boolean>(false);
+  const messageRef = useRef<HTMLParagraphElement>(null);
 
   const handleClick = async () => {
     setLoading(true);
@@ -133,6 +135,22 @@ const GenerateGenre: React.FC = () => {
     }
   };
 
+  useEffect(() => {
+    if (readyMessage && messageRef.current) {
+      const tl = gsap.timeline({ repeat: 6, yoyo: true });
+      tl.to(messageRef.current, {
+        opacity: 0,
+        duration: 0.06,
+        ease: "power3.inOut",
+      });
+      tl.to(messageRef.current, {
+        opacity: 1,
+        duration: 0.05,
+        ease: "power3.inOut",
+      });
+    }
+  }, [readyMessage]);
+
   return (
     <Container>
       <TopPage>
@@ -143,9 +161,11 @@ const GenerateGenre: React.FC = () => {
           {!loading && readyMessage && (
             <>
               {error && (
-                <Message style={{ color: "red" }}>Error: {error}</Message>
+                <Message ref={messageRef} style={{ color: "red" }}>
+                  Error: {error}
+                </Message>
               )}
-              {genre && <Message>"{genre}"</Message>}
+              {genre && <Message ref={messageRef}>"{genre}"</Message>}
             </>
           )}
         </GenreResultMobile>
@@ -154,12 +174,14 @@ const GenerateGenre: React.FC = () => {
         </PicGenContainer>
       </TopPage>
       <GenreResultDesktop>
-        {!loading && (
+        {!loading && readyMessage && (
           <>
             {error && (
-              <Message style={{ color: "red" }}>Error: {error}</Message>
+              <Message ref={messageRef} style={{ color: "red" }}>
+                Error: {error}
+              </Message>
             )}
-            {genre && <Message>"{genre}"</Message>}
+            {genre && <Message ref={messageRef}>"{genre}"</Message>}
           </>
         )}
       </GenreResultDesktop>

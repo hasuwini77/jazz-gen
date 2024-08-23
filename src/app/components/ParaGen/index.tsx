@@ -64,9 +64,10 @@ const StyledPara2 = styled.p`
 
 const StyledButton = styled.button`
   position: relative;
-  padding: 1.3rem 3rem;
-  width: 20vw;
-  font-size: 1rem;
+  padding: 1.2rem;
+  width: 23vw;
+  height: 8vh;
+  font-size: 1.2rem;
   margin-top: 1rem;
   font-family: "Libre Franklin", "Helvetica Neue", helvetica, arial, sans-serif;
   color: #fff;
@@ -99,13 +100,19 @@ const StyledButton = styled.button`
   }
 
   @media (max-width: 768px) {
-    padding: 0.75rem 2rem;
-    font-size: 1.4rem;
-    width: 55vw;
+    padding: 0.75rem;
+    width: 60vw;
+    height: 9vh;
+    font-size: 1.1rem;
+  }
+
+  @media (max-width: 1180px) {
+    width: 45vw;
+    height: 8vh;
   }
 `;
 
-const LoaderContainer = styled.span`
+const LoaderContainer = styled.div`
   position: absolute;
   top: 0;
   left: 0;
@@ -117,8 +124,8 @@ const LoaderContainer = styled.span`
   pointer-events: none;
   opacity: 0;
   transition: opacity 0.3s ease, transform 0.3s ease;
+  border-radius: 50px;
 
-  /* Make sure loader is centered */
   .pacman-loader {
     margin: 0 auto;
   }

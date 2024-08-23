@@ -14,6 +14,7 @@ const ImageContainer = styled.div`
   align-items: center;
   width: 100%;
   height: 530px;
+  background: transparent;
 `;
 
 const PicGen: React.FC<PicGenProps> = ({ restartKey }) => {

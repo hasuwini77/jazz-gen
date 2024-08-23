@@ -103,19 +103,21 @@ const Message = styled.p`
 `;
 
 const GenerateGenre: React.FC = () => {
-  const [genre, setGenre] = useState<string>("");
+  const [genre, setGenre] = useState<string | null>(null);
   const [loading, setLoading] = useState<boolean>(false);
   const [error, setError] = useState<string | null>(null);
   const [restartKey, setRestartKey] = useState<number>(0);
+  const [readyMessage, setReadyMessage] = useState<boolean>(false);
 
   const handleClick = async () => {
     setLoading(true);
     setError(null);
+    setReadyMessage(false);
+
     try {
       const data = await fetchGenre();
       setGenre(data);
 
-      // Increment key to force re-render of animation
       setRestartKey((prevKey) => prevKey + 1);
     } catch (err) {
       if (err instanceof Error) {
@@ -124,7 +126,10 @@ const GenerateGenre: React.FC = () => {
         setError("An unknown error occurred");
       }
     } finally {
-      setLoading(false);
+      setTimeout(() => {
+        setLoading(false);
+        setReadyMessage(true);
+      }, 2700);
     }
   };
 
@@ -135,16 +140,28 @@ const GenerateGenre: React.FC = () => {
           <ParaGen onButtonClick={handleClick} isLoading={loading} />
         </ParaGenContainer>
         <GenreResultMobile>
-          {error && <Message style={{ color: "red" }}>Error: {error}</Message>}
-          {genre && <Message>"{genre}"</Message>}
+          {!loading && readyMessage && (
+            <>
+              {error && (
+                <Message style={{ color: "red" }}>Error: {error}</Message>
+              )}
+              {genre && <Message>"{genre}"</Message>}
+            </>
+          )}
         </GenreResultMobile>
         <PicGenContainer>
           <PicGen restartKey={restartKey} />
         </PicGenContainer>
       </TopPage>
       <GenreResultDesktop>
-        {error && <Message style={{ color: "red" }}>Error: {error}</Message>}
-        {genre && <Message>"{genre}"</Message>}
+        {!loading && (
+          <>
+            {error && (
+              <Message style={{ color: "red" }}>Error: {error}</Message>
+            )}
+            {genre && <Message>"{genre}"</Message>}
+          </>
+        )}
       </GenreResultDesktop>
     </Container>
   );

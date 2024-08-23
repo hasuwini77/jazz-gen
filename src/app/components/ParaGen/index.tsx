@@ -1,8 +1,9 @@
 "use client";
-import React, { useEffect } from "react";
+import React, { useEffect, useRef } from "react";
 import styled from "styled-components";
 import gsap from "gsap";
 import SplitType from "split-type";
+import { PacmanLoader } from "react-spinners";
 
 interface ParaGenProps {
   onButtonClick: () => void;
@@ -26,6 +27,7 @@ const SuperTitle = styled.h1`
   font-family: "Timmana", serif;
   line-height: 1.2;
   letter-spacing: 0.04em;
+  font-kerning: none;
 
   @media (max-width: 768px) {
     font-size: 3rem;
@@ -59,8 +61,11 @@ const StyledPara2 = styled.p`
     padding: 0.3rem;
   }
 `;
+
 const StyledButton = styled.button`
-  padding: 1rem 3rem;
+  position: relative;
+  padding: 1.3rem 3rem;
+  width: 20vw;
   font-size: 1rem;
   margin-top: 1rem;
   font-family: "Libre Franklin", "Helvetica Neue", helvetica, arial, sans-serif;
@@ -70,37 +75,16 @@ const StyledButton = styled.button`
   border-radius: 50px;
   cursor: pointer;
   outline: none;
-  position: relative;
   overflow: hidden;
-  transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
-  box-shadow: 0 0 15px rgba(255, 96, 63, 0.7);
+  transition: background 0.3s ease, box-shadow 0.3s ease;
 
   &:hover {
     background: linear-gradient(135deg, #ff7799, #cc0077);
-    transform: scale(1.05);
     box-shadow: 0 0 25px rgba(255, 96, 63, 0.9);
   }
 
   &:focus {
     outline: none;
-  }
-
-  &::before {
-    content: "";
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 300%;
-    height: 300%;
-    background: rgba(255, 255, 255, 0.1);
-    border-radius: 50%;
-    transform: translate(-50%, -50%) scale(0.5);
-    transition: transform 0.5s ease;
-    z-index: 0;
-  }
-
-  &:hover::before {
-    transform: translate(-50%, -50%) scale(1);
   }
 
   span {
@@ -109,27 +93,41 @@ const StyledButton = styled.button`
   }
 
   &:disabled {
-    background: #b3b3b3;
+    background: linear-gradient(135deg, #ff99aa, #ff1899);
     cursor: not-allowed;
+    box-shadow: none;
   }
 
   @media (max-width: 768px) {
     padding: 0.75rem 2rem;
     font-size: 1.4rem;
+    width: 55vw;
   }
+`;
 
-  @media (min-width: 769px) and (max-width: 1024px) {
-    padding: 1rem 2.5rem;
-    font-size: 1.2rem;
-  }
+const LoaderContainer = styled.span`
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s ease, transform 0.3s ease;
 
-  @media (min-width: 1024px) {
-    padding: 1rem 3rem;
-    font-size: 1.3rem;
+  /* Make sure loader is centered */
+  .pacman-loader {
+    margin: 0 auto;
   }
 `;
 
 const ParaGen: React.FC<ParaGenProps> = ({ onButtonClick, isLoading }) => {
+  const loaderRef = useRef<HTMLDivElement>(null);
+  const buttonRef = useRef<HTMLButtonElement>(null);
+
   useEffect(() => {
     const split = new SplitType(".super-title", { types: "chars" });
     gsap.from(split.chars, {
@@ -139,15 +137,54 @@ const ParaGen: React.FC<ParaGenProps> = ({ onButtonClick, isLoading }) => {
       duration: 3,
       ease: "elastic.out",
     });
-  }, []);
+
+    if (buttonRef.current && loaderRef.current) {
+      if (isLoading) {
+        gsap.to(buttonRef.current, {
+          scale: 1,
+          borderRadius: "50px",
+          duration: 0.5,
+          ease: "ease.inOut",
+        });
+        gsap.to(loaderRef.current, {
+          opacity: 1,
+          scale: 1,
+          duration: 0.5,
+          ease: "ease.inOut",
+        });
+      } else {
+        gsap.to(buttonRef.current, {
+          scale: 1,
+          borderRadius: "50px",
+          duration: 0.5,
+          ease: "ease.inOut",
+        });
+        gsap.to(loaderRef.current, {
+          opacity: 0,
+          scale: 0,
+          duration: 0.5,
+          ease: "ease.inOut",
+        });
+      }
+    }
+  }, [isLoading]);
 
   return (
     <StyledDiv>
       <SuperTitle className="super-title">Jazzer Gen</SuperTitle>
       <StyledTitle>Generate New Music Genres</StyledTitle>
       <StyledPara2>In a blink of a Click</StyledPara2>
-      <StyledButton onClick={onButtonClick} disabled={isLoading}>
-        <span>{isLoading ? "Generating..." : "Generate Genre"}</span>
+      <StyledButton
+        onClick={onButtonClick}
+        disabled={isLoading}
+        ref={buttonRef}
+      >
+        {isLoading && (
+          <LoaderContainer ref={loaderRef}>
+            <PacmanLoader size={15} color={"#ff99aa"} loading={isLoading} />
+          </LoaderContainer>
+        )}
+        {!isLoading && <span>Generate Genre</span>}
       </StyledButton>
     </StyledDiv>
   );
